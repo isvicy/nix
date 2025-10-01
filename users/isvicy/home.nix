@@ -3,7 +3,6 @@
     ../../home/core.nix
 
     ../../home/programs
-    ../../home/services
 
     ../../home/desktop/niri.nix
   ];
