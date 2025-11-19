@@ -22,4 +22,5 @@
     "libvirtd"
     "kvm"
   ];
+  security.pki.certificateFiles = [./rootCA.pem];
 }
