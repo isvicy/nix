@@ -22,14 +22,16 @@
     package = pkgs.niri-unstable;
     settings = {
       outputs = {
-        "HDMI-A-2" = {
+        "HDMI-A-1" = {
           mode = {
             width = 3840;
             height = 2160;
             refresh = 119.880;
           };
+          scale = 1;
+          variable-refresh-rate = false;
         };
-        "HDMI-A-1" = {
+        "HDMI-A-2" = {
           background-color = "#ffffff";
           scale = 2.0;
         };
@@ -83,11 +85,11 @@
         "Mod+Shift+Ctrl+J".action = move-column-to-monitor-down;
         "Mod+Shift+Ctrl+K".action = move-column-to-monitor-up;
         "Mod+Shift+Ctrl+L".action = move-column-to-monitor-right;
+        "Print".action.screenshot = [];
+        "Ctrl+Print".action.screenshot-screen = [];
+        "Alt+Print".action.screenshot-window = [];
 
         "Mod+F".action = maximize-column;
-
-        "Print".action = screenshot;
-        "Mod+Shift+s".action = screenshot-window;
 
         "Mod+Shift+E".action = quit;
       };
