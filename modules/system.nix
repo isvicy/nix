@@ -74,11 +74,13 @@
 
   fonts = {
     packages = with pkgs; [
+      inter
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
+      dejavu_fonts
     ];
 
     # use fonts specified by user rather than default ones
@@ -87,11 +89,23 @@
     # user defined fonts
     # the reason there's Noto Color Emoji everywhere is to override DejaVu's
     # B&W emojis that would sometimes show instead of some Color emojis
-    fontconfig.defaultFonts = {
-      serif = ["Noto Serif" "Noto Color Emoji"];
-      sansSerif = ["Noto Sans" "Noto Color Emoji"];
-      monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
-      emoji = ["Noto Color Emoji"];
+    fontconfig = {
+      enable = true;
+      antialias = true;
+      hinting = {
+        enable = true;
+        style = "slight"; # try "slight" first; "full" is another option
+      };
+      subpixel = {
+        rgba = "rgb"; # set to "none" if you see color fringes on the OLED
+        lcdfilter = "light";
+      };
+      defaultFonts = {
+        serif = ["Noto Serif" "Noto Color Emoji"];
+        sansSerif = ["Noto Sans" "Noto Color Emoji"];
+        monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
+        emoji = ["Noto Color Emoji"];
+      };
     };
   };
 
@@ -152,7 +166,7 @@
     iotop
     iftop
     strace
-    ltrace
+    #ltrace
     lsof
     pciutils # lspci
 
