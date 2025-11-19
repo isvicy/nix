@@ -9,8 +9,10 @@
     ../../modules/audio.nix
 
     ../../modules/system.nix
+    ../../modules/nfs.nix
     ../../modules/virtualization/docker.nix
     ../../modules/virtualization/virt-manager.nix
+    ../../modules/k3s.nix
 
     ../../modules/desktop/wayland.nix
     ../../modules/desktop/xdg.nix
