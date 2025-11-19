@@ -56,6 +56,7 @@
     python3Packages.black
     marksman
     ty # python
+    terraform-ls
     # formatter
     nixpkgs-fmt
     alejandra # nix
@@ -63,8 +64,11 @@
     yq-go # yaml, json, xml
     sqlfluff
     rubyPackages.htmlbeautifier
+    shfmt
+    shellcheck
     # frontend
     nodejs_22
+    deno
 
     # container
     crane
@@ -99,6 +103,10 @@
 
     telegram-desktop
     obsidian
+    terraform
+    talosctl
+
+    chromium
   ];
 in {
   home.packages =
