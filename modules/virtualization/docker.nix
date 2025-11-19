@@ -2,8 +2,11 @@
   config,
   lib,
   pkgs,
+  username,
   ...
-}: {
+}: let
+  domain = "nixos.local";
+in {
   imports = [../options.nix];
 
   config = lib.mkIf config.custom.virtualization.docker.enable {
@@ -21,6 +24,14 @@
         })
       ];
     };
+
+    services.dnsmasq = {
+      enable = true;
+      settings = {
+        address = "/${domain}/127.0.0.1";
+      };
+    };
+
+    environment.systemPackages = [pkgs.mkcert];
   };
 }
-
