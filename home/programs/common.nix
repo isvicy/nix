@@ -33,6 +33,7 @@
     golangci-lint
     grpcurl
     rustup # remeber to run `rustup default stable` to set default toolchain version after installing
+    litecli
     # rust stuff
     cargo-cache
     cargo-expand
@@ -49,6 +50,7 @@
     # lsp
     nil
     lua-language-server
+    bash-language-server
     gopls
     ruff
     delve
@@ -107,12 +109,19 @@
     talosctl
 
     chromium
+    anki
+    uv
+
   ];
 in {
   home.packages =
     packages
     ++ [
     ];
+
+  home.sessionVariables = {
+    UV_PYTHON_DOWNLOADS = "never";
+  };
 
   programs.neovim = {
     enable = true;
