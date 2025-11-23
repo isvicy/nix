@@ -4,113 +4,159 @@
   ...
 }: let
   packages = with pkgs; [
-    # misc
-    glow
-    btop
-    ueberzugpp
-    chafa
+    # ===================
+    # System Utilities
+    # ===================
+    btop # System monitor
+    chafa # Image to ASCII converter
+    glow # Markdown renderer
+    graphviz # Graph visualization (dot command)
+    openssl # Cryptography toolkit
+    scrcpy # Android screen mirroring
+    stow # Symlink manager
+    ueberzugpp # Image display in terminal
+    yt-dlp # Video downloader
 
-    # util
-    sesh
-    presenterm
-    rclone # s3
-    graphviz # for dot command
-    openssl
-    yt-dlp
+    # ===================
+    # Shell & Terminal
+    # ===================
+    atuin # Shell history
+    direnv # Directory-specific environment variables
+    fzy # Fuzzy finder
+    sesh # Session manager
+    zoxide # Smart directory navigation
 
-    # kube
-    kind # for kube test
-    kubernetes-helm
-    kubectl
-    k9s
-    fzy
+    # ===================
+    # Development - General
+    # ===================
+    code2prompt # Convert code to LLM prompts
+    fd # Fast find alternative
+    presenterm # Terminal presentations
+    rclone # Cloud storage sync
+    tree-sitter # Parser generator
 
-    # programming
-    code2prompt
+    # ===================
+    # Development - Go
+    # ===================
     go
     gotools
     golines
+    gofumpt
     golangci-lint
+    gopls # LSP
     grpcurl
-    rustup # remeber to run `rustup default stable` to set default toolchain version after installing
-    litecli
-    # rust stuff
+    delve # Debugger
+
+    # ===================
+    # Development - Rust
+    # ===================
+    rustup # Remember to run `rustup default stable` after installing
     cargo-cache
     cargo-expand
-    postgresql
-    # c stuff
-    bear
-    # neovim
-    gofumpt
-    tree-sitter
-    fd
-    ## deps
-    lua51Packages.luarocks
-    lua5_1
-    # lsp
-    nil
-    lua-language-server
-    bash-language-server
-    gopls
-    ruff
-    delve
-    stylua
-    python3Packages.black
-    marksman
-    ty # python
-    terraform-ls
-    # formatter
-    nixpkgs-fmt
-    alejandra # nix
-    beautysh
-    yq-go # yaml, json, xml
-    sqlfluff
-    rubyPackages.htmlbeautifier
-    shfmt
-    shellcheck
-    # frontend
-    nodejs_22
-    deno
 
-    # container
-    crane
-    skopeo
-    oras
-
-    # python3
+    # ===================
+    # Development - Python
+    # ===================
     python3
     python3Packages.pipx
-    poetry
-    uv
+    python3Packages.black # Formatter
+    poetry # Package manager
+    uv # Fast Python package installer
+    ruff # Linter & formatter
+    ty # Type checker
 
-    # zsh
-    atuin
-    direnv
-    zoxide
-    stow
+    # ===================
+    # Development - C/C++
+    # ===================
+    bear # Build EAR (compile_commands.json generator)
 
-    # redis
-    tcl
+    # ===================
+    # Development - Node.js/Deno
+    # ===================
+    nodejs_22
+    deno
+    pnpm
+    moon # Monorepo build tool
 
-    # editor
+    # ===================
+    # Development - Lua
+    # ===================
+    lua5_1
+    lua51Packages.luarocks
+
+    # ===================
+    # LSP Servers
+    # ===================
+    nil # Nix LSP
+    lua-language-server
+    bash-language-server
+    marksman # Markdown LSP
+    terraform-ls
+
+    # ===================
+    # Code Formatters & Linters
+    # ===================
+    nixpkgs-fmt # Nix
+    alejandra # Nix
+    beautysh # Bash
+    shfmt # Shell
+    shellcheck # Shell linter
+    stylua # Lua
+    yq-go # YAML, JSON, XML
+    sqlfluff # SQL
+    rubyPackages.htmlbeautifier
+
+    # ===================
+    # Databases
+    # ===================
+    litecli # SQLite CLI
+    postgresql
+    tcl # Required by Redis
+
+    # ===================
+    # Container & Cloud
+    # ===================
+    crane # Container image tool
+    skopeo # Container image operations
+    oras # OCI Registry As Storage
+
+    # ===================
+    # Kubernetes
+    # ===================
+    kind # Kubernetes in Docker
+    kubernetes-helm
+    kubectl
+    k9s # Kubernetes TUI
+    talosctl # Talos Linux CLI
+
+    # ===================
+    # Infrastructure
+    # ===================
+    terraform
+
+    # ===================
+    # Editors & IDEs
+    # ===================
     zed-editor
 
-    scrcpy
+    # ===================
+    # Applications - Browsers
+    # ===================
+    chromium
+
+    # ===================
+    # Applications - Communication
+    # ===================
+    feishu # Lark/飞书
+    telegram-desktop
+
+    # ===================
+    # Applications - Productivity
+    # ===================
     _1password-gui
     _1password-cli
-
-    feishu
-    pnpm
-    moon
-
-    telegram-desktop
-    obsidian
-    terraform
-    talosctl
-
-    chromium
-    anki
-    uv
+    anki # Flashcards
+    obsidian # Note-taking
 
   ];
 in {
