@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: {
   imports = [../options.nix];
@@ -24,10 +23,5 @@
     services.xserver.videoDrivers = ["nvidia"];
 
     hardware.nvidia-container-toolkit.enable = config.custom.nvidia.enableCDI && config.custom.virtualization.docker.enable;
-
-    environment.systemPackages = with pkgs; [
-      unigine-valley
-    ];
   };
 }
-
