@@ -33,6 +33,7 @@
     "iommu=pt"
     "kvm.ignore_msrs=1"
     "kvm.report_ignored_msrs=0"
+    "reboot=pci"  # 使用 PCI 方式重启，解决 Z790 主板 B4 卡住问题
   ];
   boot.initrd.availableKernelModules = [
     "vfio"
@@ -55,4 +56,7 @@
     # for SSD/NVME
     fstrim.enable = true;
   };
+
+  # 缩短关机超时时间，避免卡住（30s 是个平衡点，太短可能导致硬件状态不干净）
+  systemd.settings.Manager.DefaultTimeoutStopSec = "30s";
 }

@@ -14,6 +14,11 @@
       "vers=3.0"
       "x-systemd.automount"
       "x-systemd.idle-timeout=600"
+      "x-systemd.mount-timeout=10"
+      "x-systemd.unmount-timeout=5"  # 卸载超时 5 秒
+      "_netdev"
+      "soft"       # 软挂载，超时后返回错误而不是无限等待
+      "timeo=50"   # CIFS 请求超时 5 秒 (单位 0.1 秒)
       "noauto"
       "nofail"
     ];
