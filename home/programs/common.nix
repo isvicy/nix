@@ -92,6 +92,10 @@
     bash-language-server
     marksman # Markdown LSP
     terraform-ls
+    harper # Markdown
+    golangci-lint-langserver
+    basedpyright
+    docker-language-server
 
     # ===================
     # Code Formatters & Linters
