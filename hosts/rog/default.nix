@@ -32,7 +32,8 @@
     "iommu=pt"
     "kvm.ignore_msrs=1"
     "kvm.report_ignored_msrs=0"
-    "reboot=pci"  # 使用 PCI 方式重启，解决 Z790 主板 B4 卡住问题
+    "reboot=efi"  # 使用 EFI 运行时服务重启
+    "xhci_hcd.quirks=270336"  # XHCI_SPURIOUS_REBOOT + XHCI_SPURIOUS_WAKEUP
   ];
   boot.initrd.availableKernelModules = [
     "vfio"

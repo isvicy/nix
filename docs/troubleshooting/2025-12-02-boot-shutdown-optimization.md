@@ -156,6 +156,35 @@ boot.kernelParams = [
 
 `reboot=pci` 通过 PCI 配置空间的 CF9 寄存器触发重启，会导致完整的硬件重置（类似冷启动），确保 USB/xHCI 控制器状态被完全清除。
 
+### 6. 使用 EFI 重启 + xHCI quirks 解决 B4 问题
+
+**2025-12-08 更新**：`reboot=pci` 不能完全解决问题，B4 仍偶发。最终方案是改用 `reboot=efi`。
+
+```nix
+# hosts/rog/default.nix
+boot.kernelParams = [
+  # ... 其他参数
+  "reboot=efi"  # 使用 EFI 运行时服务重启，解决 Z790 B4 问题
+  "xhci_hcd.quirks=270336"  # XHCI_SPURIOUS_REBOOT + XHCI_SPURIOUS_WAKEUP
+];
+```
+
+尝试过的方案：
+| 方案 | 效果 |
+|------|------|
+| `reboot=pci` | 偶发 B4 |
+| `reboot=pci` + `xhci_hcd.quirks=270336` | 仍偶发 B4 |
+| `reboot=efi` + `xhci_hcd.quirks=270336` | **解决** |
+
+quirks 值说明：
+- `8192` = XHCI_SPURIOUS_REBOOT - 防止关机后意外重启
+- `262144` = XHCI_SPURIOUS_WAKEUP - 防止 USB 设备唤醒系统
+- `270336` = 两者组合
+
+参考：
+- [kernel.org Bug #76291](https://bugzilla.kernel.org/show_bug.cgi?id=76291)
+- [Intel xhci 补丁](https://patchwork.kernel.org/project/linux-usb/patch/20220623111945.1557702-3-mathias.nyman@linux.intel.com/)
+
 ## 效果
 
 | 指标 | 优化前 | 优化后 |
