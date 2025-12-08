@@ -18,6 +18,8 @@
     ../../modules/desktop/xdg.nix
     ../../modules/desktop/displaymanager/greetd.nix
     ../../modules/im/fcitx5.nix
+
+    ../../modules/openrgb.nix
   ];
 
   custom.nvidia.enable = true;
