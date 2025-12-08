@@ -26,7 +26,6 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest; # 6.12.35 has issues with gpu card pass-through
 
   boot.kernelParams = [
     "intel_iommu=on"
@@ -53,7 +52,7 @@
   };
 
   services = {
-    # for SSD/NVME
+    # for SSD/NVMe
     fstrim.enable = true;
   };
 

@@ -2,11 +2,11 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    stable-nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    unstable-nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -19,7 +19,8 @@
     };
 
     dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell";
+      # Pin to last working version - newer versions have a bug with .makeWrapper syntax
+      url = "github:AvengeMedia/DankMaterialShell/1f2a1c5dec5c36264e24d185f38fab2a7ddbb185";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -37,7 +38,7 @@
 
         overlays = [
           (_final: prev: {
-            stable = import stable-nixpkgs {
+            unstable = import unstable-nixpkgs {
               inherit (prev) system;
               inherit config;
             };

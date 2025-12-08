@@ -7,7 +7,7 @@
     [Desktop Entry]
     Name=Niri
     Comment=A scrollable-tiling Wayland compositor
-    Exec=${pkgs.niri-unstable}/bin/niri-session
+    Exec=${pkgs.niri}/bin/niri-session
     Type=Application
     DesktopNames=niri
   '';

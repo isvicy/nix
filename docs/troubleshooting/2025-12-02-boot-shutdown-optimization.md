@@ -96,8 +96,7 @@ fileSystems."/mnt/syno" = {
     "x-systemd.mount-timeout=10"
     "x-systemd.unmount-timeout=5"  # 卸载超时 5 秒
     "_netdev"
-    "soft"       # 软挂载，超时后返回错误而不是无限等待
-    "timeo=50"   # CIFS 请求超时 5 秒 (单位 0.1 秒)
+    # 注意：soft 和 timeo 是 NFS 参数，对 CIFS 无效
   ];
 };
 ```
@@ -110,20 +109,37 @@ fileSystems."/mnt/syno" = {
 systemd.settings.Manager.DefaultTimeoutStopSec = "30s";
 ```
 
-### 4. greetd 等待 NVIDIA CDI generator 服务
+### 4. greetd 等待 GPU 设备就绪
+
+**2025-12-08 更新**：原方案依赖 `nvidia-container-toolkit-cdi-generator.service` 不够可靠，因为 cdi-generator 只依赖 `systemd-udev-settle.service`，nvidia-drm 模块初始化时间不稳定，有时 cdi-generator 会在 GPU 设备完全就绪之前完成。
+
+新方案：直接用脚本等待 `/dev/dri/card*` 设备出现。
 
 ```nix
 # modules/desktop/displaymanager/greetd.nix
-{username, pkgs, lib, config, ...}: {
+{username, pkgs, lib, config, ...}: let
+  waitForGpu = pkgs.writeShellScript "wait-for-gpu" ''
+    # 等待 /dev/dri/card* 设备出现，最多等待 30 秒
+    timeout=30
+    while [ $timeout -gt 0 ]; do
+      if ls /dev/dri/card* >/dev/null 2>&1; then
+        echo "GPU device ready"
+        exit 0
+      fi
+      sleep 0.5
+      timeout=$((timeout - 1))
+    done
+    echo "Warning: GPU device not found after 30s, proceeding anyway"
+    exit 0
+  '';
+in {
   services.greetd = {
     # ... 原有配置
   };
 
-  # 等待 NVIDIA GPU 就绪后再启动 greetd
-  # 注意：dev-nvidia0.device 不会被触发（设备通过 mknod 创建）
-  systemd.services.greetd = lib.mkIf config.custom.nvidia.enableCDI {
-    after = ["nvidia-container-toolkit-cdi-generator.service"];
-    wants = ["nvidia-container-toolkit-cdi-generator.service"];
+  # 等待 GPU 设备就绪后再启动 greetd
+  systemd.services.greetd = lib.mkIf config.custom.nvidia.enable {
+    serviceConfig.ExecStartPre = ["${waitForGpu}"];
   };
 }
 ```
