@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   packages = with pkgs; [
     # ===================
     # System Utilities
@@ -64,6 +60,7 @@
     uv # Fast Python package installer
     ruff # Linter & formatter
     ty # Type checker
+    isort # Import Sorter
 
     # ===================
     # Development - C/C++
@@ -109,6 +106,7 @@
     yq-go # YAML, JSON, XML
     sqlfluff # SQL
     rubyPackages.htmlbeautifier
+    tombi # TOML
 
     # ===================
     # Databases
@@ -161,7 +159,6 @@
     _1password-cli
     anki # Flashcards
     obsidian # Note-taking
-
   ];
 in {
   home.packages =
