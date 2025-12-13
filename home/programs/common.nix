@@ -107,6 +107,7 @@
     sqlfluff # SQL
     rubyPackages.htmlbeautifier
     tombi # TOML
+    buf # proto
 
     # ===================
     # Databases
@@ -151,6 +152,7 @@
     # ===================
     feishu # Lark/飞书
     telegram-desktop
+    wechat
 
     # ===================
     # Applications - Productivity
