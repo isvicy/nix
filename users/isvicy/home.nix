@@ -9,7 +9,7 @@
 
   programs = {
     git = {
-      enable = true;
+      enable = false;
       lfs.enable = true;
       settings.user = {
         name = "isvicy";
