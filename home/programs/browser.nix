@@ -20,4 +20,9 @@
       DontCheckDefaultBrowser = true;
     };
   };
+
+  # Google Chrome Beta from browser-previews flake
+  home.packages = with inputs.browser-previews.packages.${pkgs.system}; [
+    google-chrome-beta
+  ];
 }
