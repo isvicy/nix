@@ -36,12 +36,13 @@
   users.users.${username} = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = ["wheel" "docker"];
+    extraGroups = ["wheel" "docker" "uinput"];
     packages = [pkgs.gnupg];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBZD8Fl36zcqyYut8vu2Vhcv8m+JcxNhiRDrtM3hxzrv matexpro"
     ];
   };
+  hardware.uinput.enable = true;
   programs.gnupg.agent.enable = true;
   security.sudo.extraRules = [
     {
@@ -129,6 +130,43 @@
     stdenv.cc.cc
     glib
     ncurses
+
+    nss
+    nspr
+    dbus
+    atk
+    pango
+    cairo
+    cups
+    expat
+    fontconfig
+    freetype
+    gdk-pixbuf
+    gtk3
+    libdrm
+    libgbm
+    libnotify
+    libxcb
+    libxkbcommon
+    mesa
+    libglvnd
+    udev
+
+    xorg.libX11
+    xorg.libXcomposite
+    xorg.libXcursor
+    xorg.libXdamage
+    xorg.libXext
+    xorg.libXfixes
+    xorg.libXi
+    xorg.libXrandr
+    xorg.libXrender
+    xorg.libXtst
+    xorg.libXScrnSaver
+
+    at-spi2-atk
+    at-spi2-core
+    alsa-lib
   ];
 
   programs.zsh.enable = true;
