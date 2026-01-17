@@ -23,6 +23,11 @@
       url = "github:AvengeMedia/DankMaterialShell/1f2a1c5dec5c36264e24d185f38fab2a7ddbb185";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    clipboard-sync = {
+      url = "github:dnut/clipboard-sync";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -77,6 +82,7 @@
             [
               (configurationDefaults specialArgs)
               home-manager.nixosModules.home-manager
+              clipboard-sync.nixosModules.default
               {
                 home-manager.users.${username} = import ./users/${username}/home.nix;
               }

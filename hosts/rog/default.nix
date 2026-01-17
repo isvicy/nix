@@ -61,4 +61,7 @@
 
   # 缩短关机超时时间，避免卡住（30s 是个平衡点，太短可能导致硬件状态不干净）
   systemd.settings.Manager.DefaultTimeoutStopSec = "30s";
+
+  # X11 <-> Wayland clipboard sync (event-driven, for XWayland apps like Feishu)
+  services.clipboard-sync.enable = true;
 }

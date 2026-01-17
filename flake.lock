@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "clipboard-sync": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1759253700,
+        "narHash": "sha256-pDsDzWEBaZlT9lHsBZMGm8aBJGncMxqerKwkzjEM/EI=",
+        "owner": "dnut",
+        "repo": "clipboard-sync",
+        "rev": "138a59b8f3044dd9e7dcccd9607bbbb48c14bae6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dnut",
+        "repo": "clipboard-sync",
+        "type": "github"
+      }
+    },
     "dankMaterialShell": {
       "inputs": {
         "dgop": "dgop",
@@ -177,6 +197,7 @@
     },
     "root": {
       "inputs": {
+        "clipboard-sync": "clipboard-sync",
         "dankMaterialShell": "dankMaterialShell",
         "home-manager": "home-manager",
         "niri": "niri",
