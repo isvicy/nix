@@ -39,6 +39,7 @@
       spawn-at-startup = [
         {command = ["clipse" "-listen"];}
         {command = ["fcitx5" "-d"];}
+        {command = ["sh" "-c" "cd /home/isvicy/github/ququ && pnpm run dev"];}
       ];
       layout = {
         shadow = {
@@ -248,11 +249,24 @@
           default-column-width = {fixed = 1080;};
           default-window-height = {fixed = 1080;};
         }
+        # ququ 录音状态指示器
+        {
+          matches = [{title = "录音指示器";}];
+          open-floating = true;
+          default-floating-position = {
+            x = 0;
+            y = 30;
+            relative-to = "bottom";
+          };
+          default-column-width = {fixed = 80;};
+          default-window-height = {fixed = 28;};
+        }
       ];
       binds = with config.lib.niri.actions; {
         "Ctrl+Shift+H".action = spawn "kitty" "--class" "clipse" "-e" "clipse";
         "Mod+T".action = spawn "kitty";
         "Mod+D".action = spawn "fuzzel";
+        "Mod+Shift+Space".action = spawn "/home/isvicy/github/ququ/ququ-ctl" "toggle";
         "Mod+Q".action = close-window;
         "Mod+S".action = switch-preset-column-width;
         "Mod+F".action = maximize-column;
