@@ -27,6 +27,8 @@
   environment.sessionVariables = {
     XCURSOR_THEME = "Adwaita";
     XCURSOR_SIZE = "24";
+    # Enable Wayland for Chrome/Electron apps
+    NIXOS_OZONE_WL = "1";
   };
 
   xdg.portal = {
