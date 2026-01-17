@@ -12,6 +12,10 @@
     stow # Symlink manager
     ueberzugpp # Image display in terminal
     yt-dlp # Video downloader
+    ffmpeg
+    xdotool
+    wtype
+    dotool
 
     # ===================
     # Shell & Terminal
