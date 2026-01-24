@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   imports = [../options.nix];
@@ -18,9 +19,19 @@
       nvidiaSettings = false;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
-    hardware.graphics.enable = true;
+    hardware.graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        nvidia-vaapi-driver
+      ];
+    };
 
     services.xserver.videoDrivers = ["nvidia"];
+
+    # Required for nvidia-vaapi-driver
+    environment.sessionVariables = {
+      NVD_BACKEND = "direct";
+    };
 
     hardware.nvidia-container-toolkit.enable = config.custom.nvidia.enableCDI && config.custom.virtualization.docker.enable;
   };
