@@ -156,7 +156,6 @@
     # ===================
     feishu # Lark/飞书
     telegram-desktop
-    wechat
 
     # ===================
     # Applications - Productivity
