@@ -49,7 +49,7 @@
         overlays = [
           (_final: prev: {
             unstable = import unstable-nixpkgs {
-              inherit (prev) system;
+              system = prev.stdenv.hostPlatform.system;
               inherit config;
             };
           })

@@ -22,7 +22,7 @@
   };
 
   # Google Chrome Beta from browser-previews flake
-  home.packages = with inputs.browser-previews.packages.${pkgs.system}; [
+  home.packages = with inputs.browser-previews.packages.${pkgs.stdenv.hostPlatform.system}; [
     google-chrome-beta
   ];
 }
