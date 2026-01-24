@@ -23,19 +23,19 @@
   '';
 in {
   # greetd display manager
-  services.greetd = let
-    session = {
-      command = "${pkgs.niri}/bin/niri-session";
-      user = username;
-    };
-  in {
+  services.greetd = {
     enable = true;
     settings = {
       terminal.vt = 1;
-      default_session = session;
-      initial_session = session;
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd '${pkgs.niri}/bin/niri-session'";
+        user = "greeter";
+      };
     };
   };
+
+  # Unlock GNOME Keyring on login
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
   # 等待 NVIDIA GPU 就绪后再启动 greetd，避免 niri EGL 初始化失败
   # 直接等待 /dev/dri/card* 设备出现，比依赖 systemd 服务更可靠
