@@ -97,6 +97,7 @@
     golangci-lint-langserver
     basedpyright
     docker-language-server
+    yaml-language-server
 
     # ===================
     # Code Formatters & Linters
@@ -165,6 +166,7 @@
     _1password-cli
     anki # Flashcards
     obsidian # Note-taking
+    confirmo # AI coding companion
   ];
 in {
   home.packages =

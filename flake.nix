@@ -53,6 +53,9 @@
               inherit config;
             };
           })
+          (_final: prev: {
+            confirmo = prev.callPackage ./pkgs/confirmo.nix {};
+          })
           inputs.niri.overlays.niri # for using niri unstable
         ];
       });
