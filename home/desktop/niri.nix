@@ -249,6 +249,25 @@
           default-column-width = {fixed = 1080;};
           default-window-height = {fixed = 1080;};
         }
+        # Confirmo desktop pet - needs floating + no decorations for transparency
+        {
+          matches = [
+            {app-id = "confirmo";}
+            {app-id = "Confirmo";}
+          ];
+          open-floating = true;
+          border.enable = false;
+          focus-ring.enable = false;
+          shadow.enable = false;
+          clip-to-geometry = false;
+          draw-border-with-background = false;
+          geometry-corner-radius = {
+            top-left = 0.0;
+            top-right = 0.0;
+            bottom-left = 0.0;
+            bottom-right = 0.0;
+          };
+        }
         # ququ 录音状态指示器
         {
           matches = [{title = "录音指示器";}];
