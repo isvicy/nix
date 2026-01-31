@@ -331,7 +331,7 @@
         "Mod+Shift+Ctrl+J".action = move-column-to-monitor-down;
         "Mod+Shift+Ctrl+K".action = move-column-to-monitor-up;
         "Mod+Shift+Ctrl+L".action = move-column-to-monitor-right;
-        "Print".action.screenshot = [];
+        "Ctrl+Shift+A".action.screenshot = [];
         "Ctrl+Print".action.screenshot-screen = [];
         "Alt+Print".action.screenshot-window = [];
 
