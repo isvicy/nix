@@ -16,6 +16,7 @@
     xdotool
     wtype
     dotool
+    mpv
 
     # ===================
     # Shell & Terminal
