@@ -86,7 +86,9 @@ stdenv.mkDerivation rec {
 
     mkdir -p $out/bin
     makeWrapper $out/opt/Confirmo/confirmo $out/bin/confirmo \
-      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath buildInputs}"
+      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath buildInputs}" \
+      --add-flags "--enable-features=UseOzonePlatform,WaylandWindowDecorations" \
+      --add-flags "--ozone-platform=wayland"
 
     mkdir -p $out/share/applications
     cat > $out/share/applications/confirmo.desktop << EOF
