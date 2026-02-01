@@ -28,11 +28,11 @@
 }:
 stdenv.mkDerivation rec {
   pname = "confirmo";
-  version = "1.0.64";
+  version = "1.0.68";
 
   src = fetchurl {
     url = "https://github.com/yetone/confirmo-releases/releases/download/v${version}/confirmo_${version}_amd64.deb";
-    hash = "sha256-HBK++Ev+Z6A/ryNjV2M9fxrc67fymVp5yjQ9MtR12mo=";
+    hash = "sha256-rQkT+fXRZuZTpTW8PGooJJQXgyIAMlnk7cgVDPtFEuI=";
   };
 
   nativeBuildInputs = [
