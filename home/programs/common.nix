@@ -17,6 +17,7 @@
     wtype
     dotool
     mpv
+    skim # Command-line fuzzy finder written in Rust
 
     # ===================
     # Shell & Terminal
