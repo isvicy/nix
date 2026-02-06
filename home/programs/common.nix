@@ -100,6 +100,7 @@
     basedpyright
     docker-language-server
     yaml-language-server
+    vtsls # TypeScript/JavaScript LSP
 
     # ===================
     # Code Formatters & Linters
