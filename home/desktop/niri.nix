@@ -347,7 +347,7 @@
     swaybg
     swayidle
     swaylock
-    xwayland-satellite
+    inputs.niri.packages.x86_64-linux.xwayland-satellite-unstable
 
     pavucontrol
     fuzzel

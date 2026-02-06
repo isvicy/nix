@@ -1,8 +1,11 @@
 {
   config,
+  inputs,
   pkgs,
   ...
-}: {
+}: let
+  xwayland-satellite-unstable = inputs.niri.packages.x86_64-linux.xwayland-satellite-unstable;
+in {
   services.displayManager.ly.enable = true;
   programs.niri.enable = true;
 
@@ -13,7 +16,7 @@
     swaybg
     swayidle
     swaylock
-    xwayland-satellite
+    xwayland-satellite-unstable
 
     pavucontrol
     fuzzel
@@ -46,7 +49,7 @@
 
   systemd.user.services.xwayland = {
     serviceConfig = {
-      ExecStart = "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
+      ExecStart = "${xwayland-satellite-unstable}/bin/xwayland-satellite";
       Restart = "on-failure";
       Environment = "DISPLAY=:0";
     };
