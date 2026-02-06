@@ -67,6 +67,21 @@
                 '';
             });
           })
+          (_final: prev: let
+            fcitx5-qt5 = prev.libsForQt5.fcitx5-qt;
+            unwrapped = prev.wechat;
+          in {
+            wechat = prev.symlinkJoin {
+              name = "wechat-${unwrapped.version}";
+              paths = [unwrapped];
+              nativeBuildInputs = [prev.makeWrapper];
+              postBuild = ''
+                wrapProgram $out/bin/wechat \
+                  --set QT_IM_MODULE fcitx \
+                  --prefix QT_PLUGIN_PATH : "$(echo ${fcitx5-qt5}/lib/qt-*/plugins)"
+              '';
+            };
+          })
           inputs.niri.overlays.niri # for using niri unstable
         ];
       });
