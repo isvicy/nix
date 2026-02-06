@@ -56,6 +56,17 @@
           (_final: prev: {
             confirmo = prev.callPackage ./pkgs/confirmo.nix {};
           })
+          (_final: prev: {
+            feishu = prev.feishu.overrideAttrs (old: {
+              nativeBuildInputs = (old.nativeBuildInputs or []) ++ [prev.makeWrapper];
+              postFixup =
+                (old.postFixup or "")
+                + ''
+                  wrapProgram $out/opt/bytedance/feishu/feishu \
+                    --add-flags "--ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3"
+                '';
+            });
+          })
           inputs.niri.overlays.niri # for using niri unstable
         ];
       });

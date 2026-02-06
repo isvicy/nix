@@ -62,6 +62,8 @@
   # 缩短关机超时时间，避免卡住（30s 是个平衡点，太短可能导致硬件状态不干净）
   systemd.settings.Manager.DefaultTimeoutStopSec = "30s";
 
-  # X11 <-> Wayland clipboard sync (event-driven, for XWayland apps like Feishu)
-  services.clipboard-sync.enable = true;
+  # clipboard-sync disabled: crashes with Niri (wayland-client 0.29.4 incompatible)
+  # and actively destroys image clipboard data via race condition (issue #46).
+  # Feishu now runs as native Wayland app, so clipboard bridging is no longer needed for it.
+  services.clipboard-sync.enable = false;
 }
