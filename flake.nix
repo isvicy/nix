@@ -57,6 +57,9 @@
             confirmo = prev.callPackage ./pkgs/confirmo.nix {};
           })
           (_final: prev: {
+            skim = prev.callPackage ./pkgs/skim-bin.nix {};
+          })
+          (_final: prev: {
             feishu = prev.feishu.overrideAttrs (old: {
               nativeBuildInputs = (old.nativeBuildInputs or []) ++ [prev.makeWrapper];
               postFixup =
