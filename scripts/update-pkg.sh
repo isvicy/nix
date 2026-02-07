@@ -10,6 +10,7 @@ REPO_ROOT="$(dirname "$SCRIPT_DIR")"
 # Package configurations: name -> "owner/repo asset_pattern"
 declare -A PACKAGES=(
     ["confirmo"]="yetone/confirmo-releases confirmo_VERSION_amd64.deb"
+    ["skim-bin"]="skim-rs/skim skim-x86_64-unknown-linux-gnu.tar.xz"
 )
 
 update_package() {
@@ -52,7 +53,7 @@ update_package() {
 
     if [[ "$current_version" == "$latest_version" ]]; then
         echo "Already up to date!"
-        exit 0
+        return 0
     fi
 
     # Construct download URL
@@ -88,7 +89,7 @@ update_package() {
 
 # Main
 if [[ $# -lt 1 ]]; then
-    echo "Usage: $0 <package-name>"
+    echo "Usage: $0 <package-name>... | all"
     echo ""
     echo "Available packages:"
     for pkg in "${!PACKAGES[@]}"; do
@@ -97,4 +98,11 @@ if [[ $# -lt 1 ]]; then
     exit 1
 fi
 
-update_package "$1"
+if [[ "$1" == "all" ]]; then
+    set -- "${!PACKAGES[@]}"
+fi
+
+for pkg in "$@"; do
+    update_package "$pkg"
+    echo "---"
+done
