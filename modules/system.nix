@@ -95,11 +95,11 @@
       antialias = true;
       hinting = {
         enable = true;
-        style = "slight"; # try "slight" first; "full" is another option
+        style = "full";
       };
       subpixel = {
-        rgba = "rgb"; # set to "none" if you see color fringes on the OLED
-        lcdfilter = "light";
+        rgba = "rgb";
+        lcdfilter = "default";
       };
       defaultFonts = {
         serif = ["Noto Serif" "Noto Color Emoji"];
