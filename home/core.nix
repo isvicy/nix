@@ -12,5 +12,7 @@
     "Xft.hintstyle" = "hintfull";
     "Xft.rgba" = "none";
     "Xft.lcdfilter" = "none";
+    # Force XWayland logical DPI so misreported EDID size (1600x900 mm) doesn't shrink text.
+    "Xft.dpi" = 96;
   };
 }
