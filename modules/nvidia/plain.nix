@@ -31,6 +31,8 @@
     # Required for nvidia-vaapi-driver
     environment.sessionVariables = {
       NVD_BACKEND = "direct";
+      # Prevent NVIDIA FXAA post-processing from blurring text on Wayland
+      __GL_ALLOW_FXAA_USAGE = "0";
     };
 
     hardware.nvidia-container-toolkit.enable = config.custom.nvidia.enableCDI && config.custom.virtualization.docker.enable;

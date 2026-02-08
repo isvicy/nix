@@ -37,6 +37,7 @@
         };
       };
       spawn-at-startup = [
+        {command = ["sh" "-c" "sleep 0.5 && xrdb -merge ~/.Xresources"];}
         {command = ["clipse" "-listen"];}
         {command = ["fcitx5" "-d"];}
         {command = ["sh" "-c" "cd /home/isvicy/github/ququ && pnpm run dev"];}
@@ -358,5 +359,6 @@
     adwaita-icon-theme
     seatd
     jaq
+    xorg.xrdb
   ];
 }
