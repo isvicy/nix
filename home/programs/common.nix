@@ -163,6 +163,11 @@
     wechat
 
     # ===================
+    # Applications - File Management
+    # ===================
+    nautilus # GNOME file manager
+
+    # ===================
     # Applications - Productivity
     # ===================
     _1password-gui
