@@ -3,13 +3,14 @@
 
   programs.home-manager.enable = true;
 
-  # Match fontconfig settings for XWayland apps (Qt5/GTK X11 apps like WeChat)
-  # These read Xft.* from Xresources, not fontconfig
+  # Grayscale AA for XWayland apps to match Wayland native behavior.
+  # Wayland compositors force grayscale AA for native apps, so we align
+  # XWayland apps to get consistent rendering everywhere.
   xresources.properties = {
     "Xft.antialias" = 1;
     "Xft.hinting" = 1;
     "Xft.hintstyle" = "hintfull";
-    "Xft.rgba" = "rgb";
-    "Xft.lcdfilter" = "lcddefault";
+    "Xft.rgba" = "none";
+    "Xft.lcdfilter" = "none";
   };
 }

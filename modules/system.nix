@@ -98,8 +98,8 @@
         style = "full";
       };
       subpixel = {
-        rgba = "rgb";
-        lcdfilter = "default";
+        rgba = "none";
+        lcdfilter = "none";
       };
       defaultFonts = {
         serif = ["Noto Serif" "Noto Color Emoji"];
