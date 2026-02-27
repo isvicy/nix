@@ -4,6 +4,7 @@
     # System Utilities
     # ===================
     btop # System monitor
+    gh # GitHub CLI
     chafa # Image to ASCII converter
     glow # Markdown renderer
     graphviz # Graph visualization (dot command)
