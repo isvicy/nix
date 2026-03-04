@@ -33,6 +33,11 @@
       url = "github:nix-community/browser-previews";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -161,6 +166,15 @@
         username = "isvicy";
         modules = [
           ./hosts/rog
+        ];
+      };
+
+      nixosConfigurations.nixos-wsl = mkNixosConfiguration {
+        hostname = "nixos-wsl";
+        username = "isvicy";
+        modules = [
+          nixos-wsl.nixosModules.wsl
+          ./hosts/nixos-wsl
         ];
       };
 
