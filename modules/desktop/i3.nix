@@ -17,7 +17,7 @@
         i3lock # default i3 screen locker
 
         i3status # provide information to i3bar
-        i3-gaps # i3 with gaps
+        i3 # i3 with gaps
         feh # set wallpaper
 
         xbindkeys # bind keys to commands
