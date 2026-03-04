@@ -1,20 +1,24 @@
 {
-  config,
+  lib,
   pkgs,
   ...
 }: {
   imports = [
     ./wsl.nix
 
+    ../../modules/options.nix
     ../../modules/system.nix
     ../../modules/virtualization/docker.nix
-    ../../modules/i3.nix
+    ../../modules/desktop/i3.nix
   ];
 
-  programs.zsh.enable = true;
+  environment.pathsToLink = ["/share/applications" "/share/xdg-desktop-portal"];
+
+  networking.networkmanager.enable = lib.mkForce false;
+
+  services.dnsmasq.enable = lib.mkForce false;
 
   programs.gnupg.agent = {
-    enable = true;
     enableSSHSupport = false;
     pinentryPackage = pkgs.pinentry-curses;
   };
@@ -23,8 +27,6 @@
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
-    EDITOR = "nvim"; # this is a must for zsh edit-command-line to use neovim as editor.
-    VISUAL = "nvim";
     LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.so";
   };
 }

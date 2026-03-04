@@ -1,5 +1,5 @@
 {
-  config,
+  lib,
   username,
   ...
 }: {
@@ -9,5 +9,5 @@
   wsl.startMenuLaunchers = true;
   wsl.interop.includePath = false;
 
-  system.stateVersion = "24.05";
+  system.stateVersion = lib.mkForce "24.05";
 }
