@@ -42,7 +42,7 @@
         {command = ["sh" "-c" "sleep 0.5 && xrdb -merge ~/.Xresources"];}
         {command = ["clipse" "-listen"];}
         {command = ["fcitx5" "-d"];}
-        {command = ["sh" "-c" "cd /home/isvicy/github/ququ && pnpm run dev"];}
+        {command = ["sh" "-c" "cd /home/isvicy/github/ququ && pnpm run start"];}
       ];
       layout = {
         shadow = {

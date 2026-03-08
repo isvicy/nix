@@ -167,6 +167,7 @@
     at-spi2-atk
     at-spi2-core
     alsa-lib
+    libpulseaudio
   ];
 
   programs.zsh.enable = true;
