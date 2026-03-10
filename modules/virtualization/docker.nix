@@ -28,6 +28,8 @@ in {
       enable = true;
       settings = {
         address = "/${domain}/127.0.0.1";
+        listen-address = "127.0.0.1";
+        bind-interfaces = true;
       };
     };
 
