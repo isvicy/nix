@@ -19,6 +19,7 @@
     dotool
     mpv
     skim # Command-line fuzzy finder written in Rust
+    sox  # Reqired for claude code voice mode
 
     # ===================
     # Shell & Terminal
