@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, lib, ...}: let
   packages = with pkgs; [
     # ===================
     # System Utilities
@@ -20,6 +20,14 @@
     mpv
     skim # Command-line fuzzy finder written in Rust
     sox  # Reqired for claude code voice mode
+    gettext # Mainly for envsubst, used to replace env in json config
+
+    # ===================
+    # Secrets Management
+    # ===================
+    age # Modern encryption tool
+    gopass # Password manager (age backend)
+    sops # Structured secret encryption
 
     # ===================
     # Shell & Terminal
@@ -43,7 +51,7 @@
     # Development - Go
     # ===================
     go
-    gotools
+    (lib.lowPrio gotools)
     golines
     gofumpt
     golangci-lint
