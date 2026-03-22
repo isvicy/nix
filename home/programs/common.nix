@@ -28,6 +28,7 @@
     age # Modern encryption tool
     gopass # Password manager (age backend)
     sops # Structured secret encryption
+    gitleaks # Pre-commit secret scanning
 
     # ===================
     # Shell & Terminal
