@@ -64,4 +64,6 @@
   # and actively destroys image clipboard data via race condition (issue #46).
   # Feishu now runs as native Wayland app, so clipboard bridging is no longer needed for it.
   services.clipboard-sync.enable = false;
+
+  programs.gnupg.agent.pinentryPackage = pkgs.pinentry-tty;
 }

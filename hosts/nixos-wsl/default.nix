@@ -20,7 +20,7 @@
 
   programs.gnupg.agent = {
     enableSSHSupport = false;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentryPackage = pkgs.pinentry-tty;
   };
 
   environment.variables = {
