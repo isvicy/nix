@@ -26,7 +26,7 @@
     # Secrets Management
     # ===================
     age # Modern encryption tool
-    gopass # Password manager (age backend)
+    pass # Standard unix password manager (GPG backend)
     sops # Structured secret encryption
     gitleaks # Pre-commit secret scanning
 
