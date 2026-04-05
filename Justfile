@@ -22,7 +22,7 @@ darwin host=hostname:
 darwin-debug host=hostname:
   nix build .#darwinConfigurations.{{host}}.system --show-trace --verbose \
     --extra-experimental-features 'nix-command flakes'
-  ./result/sw/bin/darwin-rebuild switch --flake .#{{host}} --show-trace --verbose
+  sudo ./result/sw/bin/darwin-rebuild switch --flake .#{{host}} --show-trace --verbose
 
 # Home Manager: standalone switch (ubuntu hosts)
 home:

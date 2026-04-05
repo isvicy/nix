@@ -130,7 +130,7 @@
         username,
         args ? {},
         modules,
-        homeModule ? ./users/${username}/home.nix,
+        homeModule,
       }: let
         specialArgs = argDefaults // {inherit hostname username system;} // args;
       in
