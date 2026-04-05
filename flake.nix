@@ -212,6 +212,10 @@
           username = "aaron";
           email = "aaron@example.com";
         };
+        "metal2" = {
+          username = "isvicy";
+          email = "isregistermail@gmail.com";
+        };
       };
     in {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
