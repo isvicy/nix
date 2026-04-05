@@ -43,31 +43,23 @@
 
       # dev tools
       "orbstack"
-      "insomnia"
-      "bruno"
-      "wireshark-app"
 
       # communication & productivity
       "discord"
       "wechat"
-      "tencent-meeting"
-      "ticktick"
       "raycast"
       "anki"
       "obsidian"
-      "logseq"
       "chatwise"
 
       # media & reference
       "iina"
       "bilibili"
-      "lyricsx"
       "eudic"
 
       # system utilities
       "jordanbaird-ice"
       "squirrel-app"
-      "productdevbook/tap/portkiller"
       "tonisives/tap/ovim"
 
       # fonts
