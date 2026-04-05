@@ -2,27 +2,8 @@
   username,
   hostname,
   pkgs,
-  inputs,
   ...
 }: {
-  nix.settings = {
-    trusted-users = [username];
-    experimental-features = "nix-command flakes";
-    substituters = [
-      # high priority since it's almost always used
-      "https://cache.nixos.org?priority=10"
-
-      "https://niri.cachix.org"
-      "https://nix-community.cachix.org"
-    ];
-
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-
-      "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
   nix.gc = {
     automatic = true;
     dates = "weekly";
@@ -56,7 +37,6 @@
     }
   ];
 
-  time.timeZone = "Asia/Shanghai";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocales = [
     "zh_CN.UTF-8/UTF-8"
@@ -74,22 +54,7 @@
   };
 
   fonts = {
-    packages = with pkgs; [
-      inter
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-color-emoji
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.fira-code
-      dejavu_fonts
-    ];
-
-    # use fonts specified by user rather than default ones
     enableDefaultPackages = false;
-
-    # user defined fonts
-    # the reason there's Noto Color Emoji everywhere is to override DejaVu's
-    # B&W emojis that would sometimes show instead of some Color emojis
     fontconfig = {
       enable = true;
       antialias = true;
@@ -170,74 +135,20 @@
     libpulseaudio
   ];
 
-  programs.zsh.enable = true;
-
-  environment.variables = {
-    EDITOR = "nvim"; # this is a must for zsh edit-command-line to use neovim as editor.
-    VISUAL = "nvim";
-  };
-
   environment.enableAllTerminfo = true;
   environment.systemPackages = with pkgs; [
-    tzdata # we need this to use asia timezone.
-    btop
-    tmux
-    bc # for tmux conf patch
-    curl
-    wget
+    tzdata
+    parted
     iotop
     nethogs
-    parted
-    jq
-    fzf
-    vim
-    ripgrep
-    yazi
-    alejandra
-    proxychains-ng
-    iperf3
-    dnsutils # `dig` + `nslookup`
-    aria2
-    inetutils
-    socat
-    gost
-
-    iotop
     iftop
     strace
-    #ltrace
     lsof
-    pciutils # lspci
-
-    # git && git plugin
-    git
-    git-lfs
-    git-filter-repo
-    tig
-    lazygit
-    delta
-
-    # common dev stuff
-    gcc
-    gnumake
-    cmake
-    pkg-config
-    libtool
-    autoconf
-    automake
-    binutils
-    sqlite
-
-    # archives
-    zip
-    xz
-    unzip
-    p7zip
-    zstd
-
+    pciutils
     killall
-
     glibc.getent
+    binutils
+    inetutils
   ];
 
   swapDevices = [];
@@ -246,6 +157,4 @@
     mkdir -p /usr/bin
     ln -sf ${pkgs.glibc.getent}/bin/getent /usr/bin/getent
   '';
-
-  system.stateVersion = "25.05";
 }

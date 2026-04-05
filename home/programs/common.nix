@@ -3,50 +3,93 @@
     # ===================
     # System Utilities
     # ===================
-    btop # System monitor
-    gh # GitHub CLI
-    chafa # Image to ASCII converter
-    glow # Markdown renderer
-    graphviz # Graph visualization (dot command)
-    openssl # Cryptography toolkit
-    scrcpy # Android screen mirroring
-    stow # Symlink manager
-    ueberzugpp # Image display in terminal
-    yt-dlp # Video downloader
+    btop
+    gh
+    chafa
+    glow
+    graphviz
+    openssl
+    stow
+    yt-dlp
     ffmpeg
-    xdotool
-    wtype
-    dotool
     mpv
-    skim # Command-line fuzzy finder written in Rust
-    sox  # Reqired for claude code voice mode
-    gettext # Mainly for envsubst, used to replace env in json config
-
-    # ===================
-    # Secrets Management
-    # ===================
-    age # Modern encryption tool
-    pass # Standard unix password manager (GPG backend)
-    sops # Structured secret encryption
-    gitleaks # Pre-commit secret scanning
+    skim
+    sox
+    gettext
+    tree
+    ncdu
+    just
+    cloc
+    httpie
+    nmap
+    imagemagick
+    resvg
+    caddy
 
     # ===================
     # Shell & Terminal
     # ===================
-    atuin # Shell history
-    direnv # Directory-specific environment variables
-    fzy # Fuzzy finder
-    sesh # Session manager
-    zoxide # Smart directory navigation
+    tmux
+    bc
+    fzf
+    fzy
+    vim
+    ripgrep
+    yazi
+    atuin
+    direnv
+    sesh
+    zoxide
+
+    # ===================
+    # Secrets Management
+    # ===================
+    age
+    pass
+    sops
+    gitleaks
+    gnupg
+    pinentry-tty
+    pre-commit
+
+    # ===================
+    # Network & Transfer
+    # ===================
+    curl
+    wget
+    aria2
+    socat
+    iperf3
+    dnsutils
+    proxychains-ng
+    gost
+    rclone
 
     # ===================
     # Development - General
     # ===================
-    code2prompt # Convert code to LLM prompts
-    fd # Fast find alternative
-    presenterm # Terminal presentations
-    rclone # Cloud storage sync
-    tree-sitter # Parser generator
+    code2prompt
+    fd
+    ast-grep
+    presenterm
+    tree-sitter
+    git
+    git-lfs
+    git-filter-repo
+    tig
+    lazygit
+    delta
+
+    # ===================
+    # Development - Build Tools
+    # ===================
+    gcc
+    gnumake
+    cmake
+    pkg-config
+    libtool
+    autoconf
+    automake
 
     # ===================
     # Development - Go
@@ -56,14 +99,15 @@
     golines
     gofumpt
     golangci-lint
-    gopls # LSP
+    gopls
     grpcurl
-    delve # Debugger
+    grpcui
+    delve
 
     # ===================
     # Development - Rust
     # ===================
-    rustup # Remember to run `rustup default stable` after installing
+    rustup
     cargo-cache
     cargo-expand
 
@@ -72,17 +116,17 @@
     # ===================
     python3
     python3Packages.pipx
-    python3Packages.black # Formatter
-    poetry # Package manager
-    uv # Fast Python package installer
-    ruff # Linter & formatter
-    ty # Type checker
-    isort # Import Sorter
+    python3Packages.black
+    poetry
+    uv
+    ruff
+    ty
+    isort
 
     # ===================
     # Development - C/C++
     # ===================
-    bear # Build EAR (compile_commands.json generator)
+    bear
 
     # ===================
     # Development - Node.js/Deno
@@ -90,7 +134,7 @@
     nodejs_22
     deno
     pnpm
-    moon # Monorepo build tool
+    moon
 
     # ===================
     # Development - Lua
@@ -101,55 +145,74 @@
     # ===================
     # LSP Servers
     # ===================
-    nil # Nix LSP
+    nil
     lua-language-server
     bash-language-server
-    marksman # Markdown LSP
+    marksman
     terraform-ls
-    harper # Markdown
+    harper
     golangci-lint-langserver
     basedpyright
     docker-language-server
     yaml-language-server
-    vtsls # TypeScript/JavaScript LSP
+    vtsls
 
     # ===================
     # Code Formatters & Linters
     # ===================
-    nixpkgs-fmt # Nix
-    alejandra # Nix
-    beautysh # Bash
-    shfmt # Shell
-    shellcheck # Shell linter
-    stylua # Lua
-    yq-go # YAML, JSON, XML
-    sqlfluff # SQL
+    nixpkgs-fmt
+    alejandra
+    beautysh
+    shfmt
+    shellcheck
+    stylua
+    yq-go
+    sqlfluff
     rubyPackages.htmlbeautifier
-    tombi # TOML
-    buf # proto
+    tombi
+    buf
+    hadolint
+    prettierd
+
+    # ===================
+    # Archives
+    # ===================
+    zip
+    xz
+    unzip
+    p7zip
+    zstd
+
+    # ===================
+    # GNU Replacements
+    # ===================
+    gnused
+    gnutar
+    gawk
 
     # ===================
     # Databases
     # ===================
-    litecli # SQLite CLI
+    litecli
     postgresql
-    tcl # Required by Redis
+    sqlite
+    tcl
 
     # ===================
     # Container & Cloud
     # ===================
-    crane # Container image tool
-    skopeo # Container image operations
-    oras # OCI Registry As Storage
+    crane
+    skopeo
+    oras
 
     # ===================
     # Kubernetes
     # ===================
-    kind # Kubernetes in Docker
+    kind
     kubernetes-helm
     kubectl
-    k9s # Kubernetes TUI
-    talosctl # Talos Linux CLI
+    k9s
+    talosctl
 
     # ===================
     # Infrastructure
@@ -157,35 +220,14 @@
     terraform
 
     # ===================
-    # Editors & IDEs
+    # gRPC & API
     # ===================
-    zed-editor
+    jsonnet
 
     # ===================
-    # Applications - Browsers
+    # Productivity
     # ===================
-    chromium
-
-    # ===================
-    # Applications - Communication
-    # ===================
-    feishu # Lark/飞书
-    telegram-desktop
-    wechat
-
-    # ===================
-    # Applications - File Management
-    # ===================
-    nautilus # GNOME file manager
-
-    # ===================
-    # Applications - Productivity
-    # ===================
-    _1password-gui
     _1password-cli
-    anki # Flashcards
-    obsidian # Note-taking
-    confirmo # AI coding companion
   ];
 in {
   home.packages =

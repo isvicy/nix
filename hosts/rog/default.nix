@@ -2,22 +2,25 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../modules/options.nix
+    ../../modules/shared/nix.nix
+    ../../modules/shared/common.nix
 
-    ../../modules/nvidia/plain.nix
-    ../../modules/bluetooth.nix
-    ../../modules/audio.nix
+    ../../modules/nixos/options.nix
+    ../../modules/nixos/system.nix
 
-    ../../modules/system.nix
-    ../../modules/nfs.nix
-    ../../modules/virtualization/docker.nix
-    ../../modules/virtualization/virt-manager.nix
-    ../../modules/k3s.nix
+    ../../modules/nixos/nvidia/plain.nix
+    ../../modules/nixos/bluetooth.nix
+    ../../modules/nixos/audio.nix
 
-    ../../modules/desktop/wayland.nix
-    ../../modules/desktop/xdg.nix
-    ../../modules/desktop/displaymanager/greetd.nix
-    ../../modules/im/fcitx5.nix
+    ../../modules/nixos/nfs.nix
+    ../../modules/nixos/virtualization/docker.nix
+    ../../modules/nixos/virtualization/virt-manager.nix
+    ../../modules/nixos/k3s.nix
+
+    ../../modules/nixos/desktop/wayland.nix
+    ../../modules/nixos/desktop/xdg.nix
+    ../../modules/nixos/desktop/displaymanager/greetd.nix
+    ../../modules/nixos/im/fcitx5.nix
   ];
 
   custom.nvidia.enable = true;
@@ -53,17 +56,15 @@
   };
 
   services = {
-    # for SSD/NVMe
     fstrim.enable = true;
   };
 
-  # 缩短关机超时时间，避免卡住（30s 是个平衡点，太短可能导致硬件状态不干净）
   systemd.settings.Manager.DefaultTimeoutStopSec = "30s";
 
   # clipboard-sync disabled: crashes with Niri (wayland-client 0.29.4 incompatible)
-  # and actively destroys image clipboard data via race condition (issue #46).
-  # Feishu now runs as native Wayland app, so clipboard bridging is no longer needed for it.
   services.clipboard-sync.enable = false;
 
   programs.gnupg.agent.pinentryPackage = pkgs.pinentry-tty;
+
+  system.stateVersion = "25.05";
 }

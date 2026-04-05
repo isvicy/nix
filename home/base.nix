@@ -1,12 +1,4 @@
 {...}: {
-  imports = [
-    ../../home/core.nix
-
-    ../../home/programs
-
-    ../../home/desktop/niri.nix
-  ];
-
   programs = {
     git = {
       enable = false;
