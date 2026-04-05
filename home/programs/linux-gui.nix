@@ -27,9 +27,6 @@
     # Terminal image support
     ueberzugpp
 
-    # Android
-    scrcpy
-
     # AI tools
     confirmo
   ];

@@ -39,7 +39,6 @@
       "wezterm"
       "kitty"
       "zed"
-      "cursor"
 
       # dev tools
       "orbstack"
