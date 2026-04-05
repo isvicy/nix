@@ -34,6 +34,7 @@
     fzf
     fzy
     vim
+    unstable.neovim
     ripgrep
     yazi
     atuin
@@ -238,9 +239,4 @@ in {
     UV_PYTHON_DOWNLOADS = "never";
   };
 
-  programs.neovim = {
-    enable = true;
-    extraLuaPackages = ps: [ps.magick];
-    extraPackages = [pkgs.imagemagick];
-  };
 }

@@ -54,7 +54,6 @@
       # media & reference
       "iina"
       "bilibili"
-      "eudic"
 
       # system utilities
       "jordanbaird-ice"
