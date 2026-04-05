@@ -78,7 +78,6 @@
     git-filter-repo
     tig
     lazygit
-    delta
 
     # ===================
     # Development - Build Tools
