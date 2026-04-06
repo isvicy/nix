@@ -49,6 +49,7 @@
       "anki"
       "obsidian"
       "chatwise"
+      "feishu"
 
       # media & reference
       "iina"
