@@ -37,7 +37,6 @@
       # terminals & editors
       "ghostty"
       "wezterm"
-      "kitty"
       "zed"
 
       # dev tools
