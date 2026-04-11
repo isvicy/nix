@@ -42,7 +42,6 @@
     ripgrep
     yazi
     atuin
-    direnv
     sesh
     zoxide
 

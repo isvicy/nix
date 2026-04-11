@@ -1,5 +1,10 @@
 {...}: {
   programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      enableZshIntegration = false;
+    };
     git = {
       enable = false;
       lfs.enable = true;
