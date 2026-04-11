@@ -88,6 +88,7 @@
     mycli
     pgcli
     litecli
+    pg-schema-diff # used when making ddl changes to postgres
 
     # ===================
     # Development - Build Tools
