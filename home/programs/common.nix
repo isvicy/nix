@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   packages = with pkgs; [
     # ===================
     # System Utilities
@@ -79,6 +83,11 @@
     git-filter-repo
     tig
     lazygit
+    tempo # provide tempo-cli
+    grafana-loki # provide logcli
+    mycli
+    pgcli
+    litecli
 
     # ===================
     # Development - Build Tools
@@ -238,5 +247,4 @@ in {
   home.sessionVariables = {
     UV_PYTHON_DOWNLOADS = "never";
   };
-
 }
