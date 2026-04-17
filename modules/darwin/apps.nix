@@ -59,6 +59,7 @@
       "jordanbaird-ice"
       "squirrel-app"
       "tonisives/tap/ovim"
+      "maccy"
 
       # fonts
       "font-maple-mono-nf-cn"
