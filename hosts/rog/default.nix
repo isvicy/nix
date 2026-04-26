@@ -21,6 +21,8 @@
     ../../modules/nixos/desktop/xdg.nix
     ../../modules/nixos/desktop/displaymanager/greetd.nix
     ../../modules/nixos/im/fcitx5.nix
+
+    ../../modules/nixos/onepassword.nix
   ];
 
   custom.nvidia.enable = true;

@@ -232,11 +232,6 @@
     # gRPC & API
     # ===================
     jsonnet
-
-    # ===================
-    # Productivity
-    # ===================
-    _1password-cli
   ];
 in {
   home.packages =

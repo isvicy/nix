@@ -9,7 +9,6 @@
     nautilus
 
     # Productivity
-    _1password-gui
     anki
     obsidian
 
