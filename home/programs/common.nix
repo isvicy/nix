@@ -143,7 +143,6 @@
     nodejs_22
     deno
     pnpm
-    moon
 
     # ===================
     # Development - Lua
